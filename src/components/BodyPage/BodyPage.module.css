@@ -1,0 +1,11 @@
+.body-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 6rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .body-section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
