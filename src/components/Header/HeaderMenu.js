@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import classes from "./Header.module.css";
 import CartIcon from "./CartIcon.js";
+import { Link } from "react-router-dom";
 
 function HeaderMenu(props) {
   function onClickCartHandler() {}
@@ -12,7 +13,8 @@ function HeaderMenu(props) {
         {/* <button className={classes["navbar-toggler"]}></button> */}
         <div className={classes["navbar-collapse"]}>
           <ul className={classes["navbar-nav"]}>
-            <li>Home</li>
+            <Link to="/">Home</Link>
+            {/* <li>Home</li> */}
             <li>About</li>
           </ul>
           {/* <div className={classes['cart-div']}>
