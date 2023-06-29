@@ -1,10 +1,19 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import classes from "./BodyPage.module.css";
 import ITEMS from "../../asserts/items";
-import CardItem from "../MainPageBody/CardItem";
+import CardItem from "../ItemPages/CardItem";
+import ItemPage from "../ItemPages/ItemPage";
 
 function BodyPage(props) {
-  function onClickCardHandler() {}
+  const [isItemOpen, setisItemOpen] = useState(false);
+  const [displayItem, setDesplayItem] = useState();
+
+  function onClickCardHandler(id) {
+    setisItemOpen(true);
+    const itemArr = ITEMS.filter((item) => item.id === id);
+    const item = itemArr[0];
+    setDesplayItem(<ItemPage name={item.name} price={item.price} src={item.src} description={item.description}/>);
+  }
 
   const displayItems = ITEMS.map((item) => (
     <CardItem
@@ -12,13 +21,17 @@ function BodyPage(props) {
       name={item.name}
       price={item.price}
       src={item.src}
-      onClick={onClickCardHandler}
+      onClick={() => onClickCardHandler(item.id)}
     ></CardItem>
   ));
 
   return (
     <Fragment>
-      <div className={classes["body-section"]}>{displayItems}</div>
+      {isItemOpen === false ? (
+        <div className={classes["body-section-items"]}>{displayItems}</div>
+      ) : (
+        <div className={classes["body-section-item"]}>{displayItem}</div>
+      )}
     </Fragment>
   );
 }

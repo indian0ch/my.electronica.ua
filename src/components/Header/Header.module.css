@@ -2,7 +2,16 @@
     color: rgb(249, 243, 243);
     text-align: center;
     background-color: #212529;
-    padding: 2rem;
+    padding: 6rem 2rem 2rem 2rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid;
 }
 
 .navbar-container {
