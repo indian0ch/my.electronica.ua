@@ -1,6 +1,8 @@
 import { Fragment, useReducer } from "react";
+import { useSelector } from "react-redux";
 import classes from "./ItemPage.module.css";
 import ServiceItem from "./servicesItem";
+import ColorButton from "../UI/chooseColorButton";
 
 function reducerServices(state, action) {
   switch (action.type) {
@@ -26,6 +28,9 @@ function reducerServices(state, action) {
 }
 
 function ItemPage(props) {
+  const whichClrBtnActv = useSelector(
+    (state) => state.colorChoosen.isColorActive
+  );
 
   const [serviceState, dispatchService] = useReducer(reducerServices, {
     payment: false,
@@ -53,7 +58,27 @@ function ItemPage(props) {
             <p>{props.price} грн</p>
           </div>
           <div className={classes["itemPage-description-color"]}>
-            <p>"Налаштувати вибір кольору"</p>
+            <p>Оберіть колір:</p>
+            <div>
+              <ColorButton
+                id="1"
+                status={whichClrBtnActv === "1" ? true : false}
+              >
+                Чорний
+              </ColorButton>
+              <ColorButton
+                id="2"
+                status={whichClrBtnActv === "2" ? true : false}
+              >
+                Срібний
+              </ColorButton>
+              <ColorButton
+                id="3"
+                status={whichClrBtnActv === "3" ? true : false}
+              >
+                Рожевий
+              </ColorButton>
+            </div>
           </div>
           <div className={classes["itemPage-description-button"]}>
             <button>Додати в кошик</button>

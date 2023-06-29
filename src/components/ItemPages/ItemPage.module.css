@@ -35,7 +35,13 @@
     font-size: 20px;
 }
 
-.itemPage-description-color {}
+.itemPage-description-color {
+    margin-bottom: 2rem;
+}
+
+.itemPage-description-color div{
+    display: flex;
+}
 
 .itemPage-description-button {
     height: 3rem;
@@ -60,8 +66,8 @@
     padding: 3%;
     border: 1px solid;
     border-radius: 10px;
-    background-color: rgb(247, 244, 244);
-    box-shadow: 5px 5px #888888;
+    background-color: rgb(251, 250, 250);
+    box-shadow: 5px 5px 5px 5px #888888;
 }
 
 .itemPage-description-dropboxes {
