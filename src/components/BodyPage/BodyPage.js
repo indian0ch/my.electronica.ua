@@ -12,7 +12,7 @@ function BodyPage(props) {
     setisItemOpen(true);
     const itemArr = ITEMS.filter((item) => item.id === id);
     const item = itemArr[0];
-    setDesplayItem(<ItemPage name={item.name} price={item.price} src={item.src} description={item.description}/>);
+    setDesplayItem(<ItemPage name={item.name} price={item.price} src={item.src} description={item.description} link={item.videolink}/>);
   }
 
   const displayItems = ITEMS.map((item) => (

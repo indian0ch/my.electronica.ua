@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import classes from "./ItemPage.module.css";
 import ServiceItem from "./servicesItem";
 import ColorButton from "../UI/chooseColorButton";
+import VideoReview from "./VideoReview";
 
 function reducerServices(state, action) {
   switch (action.type) {
@@ -28,6 +29,7 @@ function reducerServices(state, action) {
 }
 
 function ItemPage(props) {
+  console.log(props.link);
   const whichClrBtnActv = useSelector(
     (state) => state.colorChoosen.isColorActive
   );
@@ -190,6 +192,9 @@ function ItemPage(props) {
       <div className={classes["itemPage-description-text"]}>
         <h2>Опис:</h2>
         {paragraphs}
+      </div>
+      <div>
+        <VideoReview link={props.link}>Відео-огляд на {props.name}</VideoReview>
       </div>
     </Fragment>
   );
