@@ -1,6 +1,48 @@
 footer {
-    color: rgb(249, 243, 243);
+    color: rgb(0, 0, 0);
     text-align: center;
-    background-color: #212529;
-    padding: 2rem;
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-top: 1px solid #848484;
+    /* position: fixed; */
+    /* left: 0;
+    bottom: 0; */
+    width: 100%;
+}
+
+.footer-container{
+    display: flex;
+    text-align: center;
+    justify-content:space-around;
+    padding-bottom: 2rem;
+}
+
+.footer-container h2{
+    padding-bottom: 2rem;
+}
+
+.footer-description{
+
+}
+
+.footer-description-links{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.link{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1rem;
+    border: 1px solid #ffffff;
+}
+
+.footer-contact{
+
+}
+
+.footer-contact p{
+    text-align: left;
+    font-size: 15px;
 }

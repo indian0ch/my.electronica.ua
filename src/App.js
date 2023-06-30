@@ -4,6 +4,9 @@ import HeaderMenu from "./components/Header/HeaderMenu";
 import HeaderDescription from "./components/Header/HeaderDescription";
 import BodyPage from "./components/BodyPage/BodyPage";
 import Footer from "./components/Footer/Footer";
+import AboutUs from "./components/Services/AboutUs";
+import TermsService from "./components/Services/TermsService";
+import RefundInfo from "./components/Services/RefundInfo";
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,7 +25,9 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<BodyPage />} />
-        <Route path="/about" element={<BodyPage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/terms-of-service" element={<TermsService />} />
+        <Route path="/refund-policy" element={<RefundInfo />} />
       </Routes>
       <Footer />
     </Router>

@@ -15,7 +15,7 @@ function HeaderMenu(props) {
           <ul className={classes["navbar-nav"]}>
             <Link to="/">Home</Link>
             {/* <li>Home</li> */}
-            <li>About</li>
+            <Link to="/about">About</Link>
           </ul>
           {/* <div className={classes['cart-div']}>
 

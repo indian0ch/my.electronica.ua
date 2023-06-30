@@ -25,8 +25,8 @@ function ServiceItem(props) {
             />
           </div>
         </div>
-        {props.status && props.children}
       </a>
+      {props.status && props.children}
     </Fragment>
   );
 }
