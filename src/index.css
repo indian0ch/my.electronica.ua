@@ -3,6 +3,8 @@ body {
   font-family: Assistant, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.03rem;
+  text-underline-offset: 0.3rem;
   /* width: 100%; */
 }
 

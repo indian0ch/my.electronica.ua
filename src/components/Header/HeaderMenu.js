@@ -2,8 +2,12 @@ import { Fragment } from "react";
 import classes from "./Header.module.css";
 import CartIcon from "./CartIcon.js";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function HeaderMenu(props) {
+  const { itemCount } = useSelector((state) => ({
+    itemCount: state.cartFunctional.totalCount,
+  }));
   function onClickCartHandler() {}
 
   return (
@@ -13,23 +17,20 @@ function HeaderMenu(props) {
         {/* <button className={classes["navbar-toggler"]}></button> */}
         <div className={classes["navbar-collapse"]}>
           <ul className={classes["navbar-nav"]}>
-            <Link to="/">Home</Link>
+            <Link to="/">Головна</Link>
             {/* <li>Home</li> */}
-            <Link to="/about">About</Link>
+            <Link to="/about">Про нас</Link>
           </ul>
           {/* <div className={classes['cart-div']}>
 
           </div> */}
-          <button
-            className={classes["cart-button"]}
-            onClick={onClickCartHandler}
-          >
+          <Link className={classes["cart-button"]} to="/cart">
             <span className={classes["cart-icon"]}>
               <CartIcon />
             </span>
             <span>Кошик</span>
-            <span className={classes["cart-badge"]}>0</span>
-          </button>
+            <span className={classes["cart-badge"]}>{itemCount}</span>
+          </Link>
         </div>
       </div>
     </nav>

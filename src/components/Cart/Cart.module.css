@@ -1,0 +1,118 @@
+.cartPage {
+    margin: 0 auto;
+    padding: 5rem;
+}
+
+.cartHeader {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartHeader h1 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.cartHeader-link {
+    color: #000;
+    font-size: 19px;
+}
+
+.listContainer {
+    font-size: 18px;
+}
+
+.listTable {
+    width: 100%;
+    border-collapse: collapse;
+    padding-bottom: 4rem;
+}
+
+.listTable tbody {}
+
+.listTable-header {
+    font-weight: 500;
+    color: rgb(110, 110, 110);
+}
+
+.listTable-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.listTable-header span:first-child {
+    flex-basis: 50%;
+}
+
+.listTable-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    border-bottom: 1px solid rgb(106, 106, 106);
+    border-top: 1px solid rgb(106, 106, 106);
+    padding-bottom: 2rem;
+}
+
+
+
+.row-image-container {
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
+    flex-basis: 20%;
+}
+
+.row-image-container img {
+    width: 80%;
+    height: 100%;
+}
+
+.row-name-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    padding: 2rem 1.5rem;
+}
+
+.row-name-container span {
+    font-size: 16px;
+}
+
+.row-count-container {
+    display: flex;
+}
+
+.row-count-container img {
+    padding-top: 3.7rem;
+    padding-left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.row-count-container div {
+    display: flex;
+    justify-content: space-between;
+    border: 0.5px solid black;
+    margin: 3rem 0rem 6rem;
+    width: 8rem;
+    font-size: 18px;
+    align-items: center;
+    color: rgb(110, 110, 110);
+    transition: all ease 3s;
+}
+
+.row-count-container button {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+}
+
+.row-count-container button:active {}
+
+.row-price-container {
+    padding: 3rem 1.5rem;
+}

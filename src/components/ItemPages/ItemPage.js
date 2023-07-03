@@ -1,9 +1,10 @@
 import { Fragment, useReducer } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import classes from "./ItemPage.module.css";
 import ServiceItem from "./servicesItem";
 import ColorButton from "../UI/chooseColorButton";
 import VideoReview from "./VideoReview";
+import { cartActions } from "../storage/cart-slice";
 
 function reducerServices(state, action) {
   switch (action.type) {
@@ -29,7 +30,8 @@ function reducerServices(state, action) {
 }
 
 function ItemPage(props) {
-  console.log(props.link);
+  const dispatch = useDispatch();
+
   const whichClrBtnActv = useSelector(
     (state) => state.colorChoosen.isColorActive
   );
@@ -42,6 +44,19 @@ function ItemPage(props) {
   const paragraphs = props.description
     .split("\n")
     .map((paragraph, index) => <p key={index}>{paragraph}</p>);
+
+  function onAddToCartHandler(event) {
+    event.preventDefault();
+    dispatch(
+      cartActions.addNewItem({
+        name: "Smart Watch 8",
+        price: 348,
+        count: 2,
+        color: "Black",
+        imageSrc: "6s-main.jpeg",
+      })
+    );
+  }
 
   return (
     <Fragment>
@@ -83,7 +98,7 @@ function ItemPage(props) {
             </div>
           </div>
           <div className={classes["itemPage-description-button"]}>
-            <button>Додати в кошик</button>
+            <button onClick={onAddToCartHandler}>Додати в кошик</button>
           </div>
           <div className={classes["itemPage-description-dropboxes"]}>
             <ServiceItem
