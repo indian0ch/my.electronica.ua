@@ -13,7 +13,7 @@ function CardItem(props) {
         <p>{props.price} грн.</p>
       </div>
       <div className={classes["cardItem-footer"]}>
-        <button onClick={props.onClick}>Детальніше</button>
+        <button className="btn btn-outline-dark btn-lg" onClick={props.onClick}>Детальніше</button>
       </div>
     </div>
   );

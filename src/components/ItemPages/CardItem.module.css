@@ -37,16 +37,9 @@
 }
 
 .cardItem-footer button {
-    font-size: 18px;
     padding: 0.3rem;
     border-radius: 8px;
-    background-color: #fff;
     margin-bottom: 1rem;
-    width: 10rem;
+    width: 10rem; 
     transition: all 0.5s ease-out;
-}
-
-.cardItem-footer button:hover {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
 }

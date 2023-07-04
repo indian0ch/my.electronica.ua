@@ -27,9 +27,9 @@ function ItemRow(props) {
       <div className={classes["row-count-container"]}>
         <div>
           {" "}
-          <button onClick={onDecreaseHandler}>—</button>
+          <button className="btn" onClick={onDecreaseHandler}>—</button>
           <span>{props.count}</span>
-          <button style={{ fontSize: "24px" }} onClick={onIncreaseHandler}>
+          <button className="btn btn-outline-dark" style={{ fontSize: "24px" }} onClick={onIncreaseHandler}>
             +
           </button>
         </div>
