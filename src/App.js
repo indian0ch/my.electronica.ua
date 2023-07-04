@@ -1,4 +1,3 @@
-
 import logo from "./logo.svg";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
@@ -23,7 +22,7 @@ function App() {
   return (
     <Router>
       <header>
-        <HeaderMenu />
+        <HeaderMenu fixed='top' color='light' light='true' expand='md' container='fluid'/>
         <HeaderDescription />
       </header>
       <Routes>
