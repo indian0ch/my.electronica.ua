@@ -36,7 +36,7 @@ function BodyPage(props) {
   return (
     <Fragment>
       {isItemOpen === false ? (
-        <div className={`${classes['body-section-items']} container-md`}>
+        <div className={`${classes["body-section-items"]} container-md`}>
           <div className="row">{displayItems}</div>
         </div>
       ) : (
