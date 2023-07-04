@@ -12,7 +12,15 @@ function BodyPage(props) {
     setisItemOpen(true);
     const itemArr = ITEMS.filter((item) => item.id === id);
     const item = itemArr[0];
-    setDesplayItem(<ItemPage name={item.name} price={item.price} src={item.src} description={item.description} link={item.videolink}/>);
+    setDesplayItem(
+      <ItemPage
+        name={item.name}
+        price={item.price}
+        src={item.src}
+        description={item.description}
+        link={item.videolink}
+      />
+    );
   }
 
   const displayItems = ITEMS.map((item) => (
@@ -28,7 +36,9 @@ function BodyPage(props) {
   return (
     <Fragment>
       {isItemOpen === false ? (
-        <div className={classes["body-section-items"]}>{displayItems}</div>
+        <div className={`${classes['body-section-items']} container-md`}>
+          <div className="row">{displayItems}</div>
+        </div>
       ) : (
         <div className={classes["body-section-item"]}>{displayItem}</div>
       )}
