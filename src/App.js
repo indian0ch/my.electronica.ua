@@ -1,4 +1,6 @@
+
 import logo from "./logo.svg";
+import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 import HeaderMenu from "./components/Header/HeaderMenu";
 import HeaderDescription from "./components/Header/HeaderDescription";
