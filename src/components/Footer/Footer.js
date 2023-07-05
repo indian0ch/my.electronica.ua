@@ -24,7 +24,7 @@ function Footer(props) {
       </div>
       <p>
         &copy; 2023, My Electronica Ua - Магазин електронних аксесуарів. Всі
-        права захищені Powered by kyivskuy
+        права захищені. Powered by <Link to="https://github.com/indian0ch" className={classes.link}>kyivsluy</Link>
       </p>
     </footer>
   );
