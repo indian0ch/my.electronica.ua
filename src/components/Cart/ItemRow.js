@@ -31,15 +31,15 @@ function ItemRow(props) {
   },[isLoading]);
 
   return (
-    <Fragment>
-      <div className={classes["row-image-container"]}>
+    <div className="row justify-content-md-center">
+      <div className={`${classes["row-image-container"]} col-3 col-xxl-3  col-lg-3 col-sm`}>
         <img src={require(`../../asserts/${props.imageSrc}`)}></img>
       </div>
-      <div className={classes["row-name-container"]}>
+      <div className={`${classes["row-name-container"]} col-4 col-xxl-4 col-lg-3 col-sm`}>
         <p>{props.name}</p>
         <span>{props.price} грн</span>
       </div>
-      <div className={classes["row-count-container"]}>
+      <div className={`${classes["row-count-container"]} col-4 col-xxl-3 col-lg-3 col-sm`}>
         <ButtonGroup className={classes["row-count-container-group"]}>
           <Button color="dark" onClick={onDecreaseHandler} outline>
             —
@@ -53,10 +53,10 @@ function ItemRow(props) {
         </ButtonGroup>
         <TrashIcon onDeleteHandler={onDeleteHandler}/>
       </div>
-      <div className={classes["row-price-container"]}>
+      <div className={`${classes["row-price-container"]} col-1 col-xxl2 col-lg-2  col-sm`}>
         {isLoading?(<Spinner size='sm' color="dark"/>):(<span> {props.count * props.price} грн</span>)}
       </div>
-    </Fragment>
+    </div>
   );
 }
 export default ItemRow;

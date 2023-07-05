@@ -13,7 +13,7 @@ function NotEmptyCart(props) {
   console.log("rendering");
 
   return (
-    <Fragment>
+    <div className="container-lg">
       <div className={classes.cartHeader}>
         <h1>Ваш кошик</h1>
         <Link className={classes["cartHeader-link"]} to="/">
@@ -22,12 +22,12 @@ function NotEmptyCart(props) {
       </div>
       <div className={classes.listContainer}>
         <table className={classes.listTable}>
-          <div className={classes["listTable-header"]}>
-            <span>Товар</span>
-            <span>Кількість</span>
-            <span>Ціна</span>
+          <div className={`${classes["listTable-header"]} row`}>
+            <span className="col-8">Товар</span>
+            <span className="col-4">Кількість</span>
+            <span className="col-2">Ціна</span>
           </div>
-          <div className={classes["listTable-body"]}>
+          <div className={`${classes["listTable-body"]}`}>
             {cartItems.map((item) => {
               return (
                 <ItemRow
@@ -49,7 +49,7 @@ function NotEmptyCart(props) {
               <Button className={classes["cartFooter-content-button"]} color='dark' size="lg">Замовити</Button>
           </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
 export default NotEmptyCart;
