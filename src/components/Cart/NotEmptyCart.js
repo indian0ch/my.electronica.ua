@@ -3,11 +3,12 @@ import classes from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ItemRow from "./ItemRow";
+import { Button } from "reactstrap";
 
 function NotEmptyCart(props) {
   const { cartItems, cartSum } = useSelector((state) => ({
     cartItems: state.cartFunctional.items,
-    cartSum: state.cartFunctional.totelSum,
+    cartSum: state.cartFunctional.totalSum,
   }));
   console.log("rendering");
 
@@ -41,6 +42,12 @@ function NotEmptyCart(props) {
             })}
           </div>
         </table>
+      </div>
+      <div className={classes.cartFooter}>
+          <div className={classes["cartFooter-content"]}>
+              <p>Вартість: {cartSum}грн</p>
+              <Button className={classes["cartFooter-content-button"]} color='dark' size="lg">Замовити</Button>
+          </div>
       </div>
     </Fragment>
   );

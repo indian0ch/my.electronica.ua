@@ -10,7 +10,7 @@ import serviceItemsArr from "../Services/ServicesItemList";
 
 function ItemPage(props) {
   const dispatch = useDispatch();
-  const [openService, setOpenService] = useState("1");
+  const [openService, setOpenService] = useState("0");
 
   const whichClrBtnActv = useSelector(
     (state) => state.colorChoosen.isColorActive
