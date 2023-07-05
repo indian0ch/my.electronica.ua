@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import classes from "./BodyPage.module.css";
 import ITEMS from "../../asserts/items";
 import CardItem from "../ItemPages/CardItem";

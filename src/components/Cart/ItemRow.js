@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import {useState, useEffect } from "react";
 import classes from "./Cart.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../storage/cart-slice";

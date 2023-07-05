@@ -1,18 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [
-    {
-      id: "w1",
-      name: "Smart Watch 8",
-      price: 348,
-      count: 2,
-      color: "Black",
-      imageSrc: "6s-main.jpeg",
-    },
-  ],
-  totalSum: 696,
-  totalCount: 2,
+  items: [],
+  totalSum: 0,
+  totalCount: 0,
 };
 
 const cartSlice = createSlice({
@@ -37,9 +28,15 @@ const cartSlice = createSlice({
     decreaseItem: (state, action) => {
       const nameItem = action.payload;
       const item = state.items.find((item) => item.name === nameItem);
-      item.count--;
-      state.totalSum -= item.price;
-      state.totalCount--;
+      if (item.count > 1) {
+        item.count--;
+        state.totalSum -= item.price;
+        state.totalCount--;
+      } else{
+        state.items = state.items.filter((element) => element.name !== nameItem);
+        state.totalCount -= item.count;
+        state.totalSum -= item.count * item.price;
+      }
     },
     increaseItem: (state, action) => {
       const nameItem = action.payload;

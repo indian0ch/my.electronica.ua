@@ -21,6 +21,7 @@
 }
 
 .itemPage-description {
+    padding-top: 4rem;
     flex-basis: 50%;
     align-self: flex-start;
     line-height: 1.5;

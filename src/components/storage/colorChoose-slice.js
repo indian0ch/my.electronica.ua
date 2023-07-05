@@ -10,9 +10,7 @@ const colorChoosenSlice = createSlice({
   reducers: {
     changeButtonId: (state, action) => {
       const id = action.payload;
-      console.log(id);
       state.isColorActive = id;
-      console.log(state.isColorActive);
     },
   },
 });

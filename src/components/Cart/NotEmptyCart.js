@@ -10,7 +10,11 @@ function NotEmptyCart(props) {
     cartItems: state.cartFunctional.items,
     cartSum: state.cartFunctional.totalSum,
   }));
-  console.log("rendering");
+  
+  function onOrderHandler(event){
+    event.preventDefault();
+    
+  }
 
   return (
     <div className="container-lg">
@@ -46,7 +50,7 @@ function NotEmptyCart(props) {
       <div className={classes.cartFooter}>
           <div className={classes["cartFooter-content"]}>
               <p>Вартість: {cartSum}грн</p>
-              <Button className={classes["cartFooter-content-button"]} color='dark' size="lg">Замовити</Button>
+              <Button className={classes["cartFooter-content-button"]} color='dark' size="lg" onClick={onOrderHandler}>Замовити</Button>
           </div>
       </div>
     </div>

@@ -32,11 +32,11 @@ function ItemPage(props) {
     event.preventDefault();
     dispatch(
       cartActions.addNewItem({
-        name: "Smart Watch 8",
-        price: 348,
-        count: 2,
-        color: "Black",
-        imageSrc: "6s-main.jpeg",
+        name: props.name,
+        price: props.price,
+        count: 1,
+        color: whichClrBtnActv,
+        imageSrc: props.src,
       })
     );
   }

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function EmptyCart(props) {
   return (
-    <Fragment>
-      <Link to="/" className={classes.continueSellButton}>Продовжити покупки</Link>
-    </Fragment>
+    <div className={classes.continueSellButton}>
+      <Link to="/">Продовжити покупки</Link>
+    </div>
   );
 }
 export default EmptyCart;
