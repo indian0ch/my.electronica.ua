@@ -14,6 +14,7 @@ function BodyPage(props) {
     const item = itemArr[0];
     setDesplayItem(
       <ItemPage
+      id={item.id}
         name={item.name}
         price={item.price}
         src={item.src}

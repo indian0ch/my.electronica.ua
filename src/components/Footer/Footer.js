@@ -9,7 +9,7 @@ function Footer(props) {
           <h2>Дізнатись більше про My Electronica:</h2>
           <div className={classes["footer-description-links"]}>
             <Link to="/about" className={classes.link}>Про нас</Link>
-            <Link to="" className={classes.link}>Контакти</Link>
+            <Link to="/contact" className={classes.link}>Контакти</Link>
             <Link to="terms-of-service" className={classes.link}>Умови обслуговування</Link>
             <Link to="/refund-policy" className={classes.link}>Оплата, доставка, повернення коштів</Link>
           </div>

@@ -9,6 +9,7 @@ import AboutUs from "./components/Services/AboutUs";
 import TermsService from "./components/Services/TermsService";
 import RefundInfo from "./components/Services/RefundInfo";
 import CartPage from "./components/Cart/CartPage";
+import Contact from "./components/Services/ContactUs";
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,6 +32,7 @@ function App() {
         <Route path="/terms-of-service" element={<TermsService />} />
         <Route path="/refund-policy" element={<RefundInfo />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

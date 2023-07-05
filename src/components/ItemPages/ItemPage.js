@@ -7,8 +7,11 @@ import VideoReview from "./VideoReview";
 import { cartActions } from "../storage/cart-slice";
 import { Accordion } from "reactstrap";
 import serviceItemsArr from "../Services/ServicesItemList";
+import ImageSlider from "./ImagesSlider";
+import itemsImages from "../../asserts/items-images.js";
 
 function ItemPage(props) {
+  console.log(props.id);
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
 
@@ -43,14 +46,11 @@ function ItemPage(props) {
 
   return (
     <Fragment>
-      <div className={classes["itemPage"]}>
-        <div className={classes["itemPage-gallery"]}>
-          <img
-            src={require(`../../asserts/${props.src}`)}
-            alt="Фотографія товару"
-          ></img>
+      <div className={`${classes["itemPage"]} container-lg`}>
+        <div className={`col-6`}>
+          <ImageSlider itemArray={itemsImages} id={props.id}/>
         </div>
-        <div className={classes["itemPage-description"]}>
+        <div className={`${classes["itemPage-description"]} col-5`}>
           <div className={classes["itemPage-description-name"]}>
             <p>{props.name}</p>
           </div>
@@ -112,11 +112,11 @@ function ItemPage(props) {
           </div>
         </div>
       </div>
-      <div className={classes["itemPage-description-text"]}>
+      <div className={`${classes["itemPage-description-text"]} container-lg`}>
         <h2>Опис:</h2>
         {paragraphs}
       </div>
-      <div>
+      <div className='container-lg'>
         <VideoReview link={props.link}>Відео-огляд на {props.name}</VideoReview>
       </div>
     </Fragment>
