@@ -21,16 +21,18 @@ const cartSlice = createSlice({
   reducers: {
     addNewItem: (state, action) => {
       const newItem = action.payload;
-      //   state.isColorActive = id;
       state.items.push(newItem);
       state.totalSum += newItem.price;
       state.totalCount++;
     },
     removeItem: (state, action) => {
-      const item = action.payload;
-      state.items = state.items.filter((element) => element.name !== item.name);
-      state.totalCount -= item.count;
-      state.totalSum -= item.count * item.price;
+      const nameItem = action.payload;
+      const deleteItem = state.items.find(
+        (element) => element.name === nameItem
+      );
+      state.items = state.items.filter((element) => element.name !== nameItem);
+      state.totalCount -= deleteItem.count;
+      state.totalSum -= deleteItem.count * deleteItem.price;
     },
     decreaseItem: (state, action) => {
       const nameItem = action.payload;

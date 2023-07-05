@@ -1,24 +1,34 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import classes from "./Cart.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../storage/cart-slice";
-import { Button, ButtonGroup } from "reactstrap";
+import { Button, ButtonGroup, Spinner } from "reactstrap";
 import TrashIcon from "./TrashIcon";
 
 function ItemRow(props) {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading]=useState(false);
 
   function onDecreaseHandler(event) {
     event.preventDefault();
     dispatch(cartActions.decreaseItem(props.name));
+    setIsLoading(true);
   }
   function onIncreaseHandler(event) {
     event.preventDefault();
     dispatch(cartActions.increaseItem(props.name));
+    setIsLoading(true);
   }
   function onDeleteHandler() {
     dispatch(cartActions.removeItem(props.name));
+    setIsLoading(true);
   }
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  },[isLoading]);
 
   return (
     <Fragment>
@@ -42,29 +52,9 @@ function ItemRow(props) {
           </Button>
         </ButtonGroup>
         <TrashIcon onDeleteHandler={onDeleteHandler}/>
-        {/* <div>
-          {" "}
-          <button className="btn" onClick={onDecreaseHandler}>
-            —
-          </button>
-          <span>{props.count}</span>
-          <button
-            className="btn btn-outline-dark"
-            style={{ fontSize: "24px" }}
-            onClick={onIncreaseHandler}
-          >
-            +
-          </button>
-        </div>
-        <img
-          width="48"
-          height="48"
-          src="https://img.icons8.com/fluency-systems-regular/48/trash--v2.png"
-          alt="trash--v2"
-        /> */}
       </div>
       <div className={classes["row-price-container"]}>
-        <span> {props.count * props.price} грн</span>
+        {isLoading?(<Spinner size='sm' color="dark"/>):(<span> {props.count * props.price} грн</span>)}
       </div>
     </Fragment>
   );
