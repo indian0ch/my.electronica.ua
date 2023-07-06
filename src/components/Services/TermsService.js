@@ -3,7 +3,7 @@ import classes from "./services.module.css";
 
 function TermsService(props) {
   return (
-    <div className={classes.aboutUs}>
+    <div className={`${classes.aboutUs} container-md`}>
       <h1>Умови обслуговування</h1>
       <p>
         Інтернет-сайт FARFI, далі іменований “Продавець”, пропонує будь-якій

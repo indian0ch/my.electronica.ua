@@ -3,7 +3,7 @@ import classes from "./services.module.css";
 
 function AboutUs(props) {
   return (
-    <div className={classes.aboutUs}>
+    <div className={`${classes.aboutUs} container-md`}>
       <h1>Про нас</h1>
       <p>
         My electronica ua - це український інтернет-магазин електроніки,

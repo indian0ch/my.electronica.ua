@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer(props) {
   return (
     <footer>
-      <div className={classes["footer-container"]}>
+      <div className={`${classes["footer-container"]} container-md`}>
         <div className={classes["footer-description"]}>
           <h2>Дізнатись більше про My Electronica:</h2>
           <div className={classes["footer-description-links"]}>
