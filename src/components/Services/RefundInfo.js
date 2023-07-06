@@ -2,7 +2,7 @@ import classes from "./services.module.css";
 
 function RefundInfo(props) {
   return (
-    <div className={`${classes.aboutUs} container-md`}>
+    <div className={`${classes.aboutUs} container-md my-5`}>
       <h2>ДОСТАВКА ТА ПОВЕРНЕННЯ ПО УКРАЇНІ</h2>
       <h4>Спосіб доставки:</h4>
       <p>

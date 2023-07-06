@@ -1,18 +1,15 @@
-.aboutUs{
-    padding: 0 15rem 5rem;
-    text-align: left;
-    margin: 0 auto;
+.aboutUs {
     font-size: 1.3rem;
-    /* letter-spacing: 0.06rem; */
-    line-height: 2rem;
-    color: rgb(18, 18, 18);
 }
-.aboutUs h1{
+
+.aboutUs h1 {
     font-size: 50px;
     font-weight: 500;
     margin-bottom: 3rem;
 }
 
-.aboutUs p{
-    
+.aboutUs h2 {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 3rem;
 }
