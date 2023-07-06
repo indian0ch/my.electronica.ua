@@ -1,17 +1,8 @@
 .itemPage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
     font-size: 18px;
-    height: 50rem;
-    overflow: auto;
 }
 
-.itemPage-gallery {
-    width: 100%;
-    padding: 20rem 1rem;
-}
+.itemPage-gallery {}
 
 .itemPage-description {
     margin-left: 3rem;
@@ -44,7 +35,6 @@
 
 .itemPage-description-button button {
     width: 80%;
-    height: 100%;
     font-size: 19px;
     font-weight: 600;
     border-radius: 30px;
@@ -113,4 +103,13 @@ ol {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+}
+
+@media  (max-width: 768px) {
+    .itemPage-description {
+        margin-left: 0;
+        padding-top: 4rem;
+        align-self: flex-start;
+        line-height: 1.5;
+    }
 }

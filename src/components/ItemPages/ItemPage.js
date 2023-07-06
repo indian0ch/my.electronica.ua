@@ -5,13 +5,12 @@ import ServiceItem from "./servicesItem";
 import ColorButton from "../UI/chooseColorButton";
 import VideoReview from "./VideoReview";
 import { cartActions } from "../storage/cart-slice";
-import { Accordion } from "reactstrap";
+import { Accordion, Row, Col } from "reactstrap";
 import serviceItemsArr from "../Services/ServicesItemList";
 import ImageSlider from "./ImagesSlider";
 import itemsImages from "../../asserts/items-images.js";
 
 function ItemPage(props) {
-  console.log(props.id);
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
 
@@ -46,11 +45,12 @@ function ItemPage(props) {
 
   return (
     <Fragment>
-      <div className={`${classes["itemPage"]} container-lg`}>
-        <div className={`col-6`}>
+      <div className={`${classes["itemPage"]} container-md`}>
+        <Row>
+        <div className="col-md">
           <ImageSlider itemArray={itemsImages} id={props.id}/>
         </div>
-        <div className={`${classes["itemPage-description"]} col-5`}>
+        <div className={`${classes["itemPage-description"]}  col-md`}>
           <div className={classes["itemPage-description-name"]}>
             <p>{props.name}</p>
           </div>
@@ -111,6 +111,7 @@ function ItemPage(props) {
             </Accordion>
           </div>
         </div>
+        </Row>
       </div>
       <div className={`${classes["itemPage-description-text"]} container-lg`}>
         <h2>Опис:</h2>

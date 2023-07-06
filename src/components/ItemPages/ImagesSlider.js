@@ -45,7 +45,7 @@ function ImageSlider(props) {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} class="d-block w-100" />
+        <img src={item.src} alt={item.altText} className="d-block w-100 " />
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
@@ -77,6 +77,7 @@ function ImageSlider(props) {
         direction="next"
         directionText="Next"
         onClickHandler={next}
+        className="carousel-control-next"
       />
     </Carousel>
   );
