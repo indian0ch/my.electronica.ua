@@ -30,6 +30,7 @@ function HeaderMenu(props) {
     <Navbar {...props}>
       <NavbarBrand href="/">My electronica</NavbarBrand>
       <NavbarToggler onClick={toggle} />
+
       <Collapse isOpen={isOpen} navbar>
         <Nav className="me-auto" navbar>
           <NavItem>
