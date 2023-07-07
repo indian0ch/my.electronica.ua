@@ -62,11 +62,11 @@ function ImageSlider(props) {
       className={`${classes["itemPage-gallery"]}`}
       //   {...args}
     >
-      <CarouselIndicators
+      {/* <CarouselIndicators
         items={items}
         activeIndex={activeIndex}
         onClickHandler={goToIndex}
-      />
+      /> */}
       {slides}
       <CarouselControl
         direction="prev"
