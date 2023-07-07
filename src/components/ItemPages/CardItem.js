@@ -3,12 +3,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 
 function CardItem(props) {
   return (
-    <Card
-      style={{
-        width: "18rem",
-      }}
-      className={`${classes.cardItem} col-xxl-3 col-lg-4 col-md-5 col-sm-8`}
-    >
+    <Card className={`${classes.cardItem} col-xxl-3 col-lg-4 col-sm-5`}>
       <div className={classes.cardItemImg}>
         <img
           alt="Фотографія товару"

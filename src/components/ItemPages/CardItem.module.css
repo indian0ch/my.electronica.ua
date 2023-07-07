@@ -1,7 +1,7 @@
 .cardItem {
     display: flex;
+    width: 18rem;
     flex-direction: column;
-    margin-bottom: 1.5rem;
     border-radius: 8px;
     margin-bottom: 3rem;
     margin-right: 2rem;
@@ -19,4 +19,11 @@
 
 .cardItem-footer {
     margin-top: 2rem;
+}
+
+@media  (max-width: 400px) {
+    .cardItem {
+        margin: 0 auto 3rem;
+        width: 400px;
+    }
 }
