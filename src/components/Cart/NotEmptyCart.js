@@ -3,7 +3,7 @@ import classes from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ItemRow from "./ItemRow";
-import { Button } from "reactstrap";
+import { Button, Row } from "reactstrap";
 
 function NotEmptyCart(props) {
   const { cartItems, cartSum } = useSelector((state) => ({
@@ -17,7 +17,7 @@ function NotEmptyCart(props) {
   }
 
   return (
-    <div className="container-lg">
+    <div className="container-sm">
       <div className={classes.cartHeader}>
         <h1>Ваш кошик</h1>
         <Link className={classes["cartHeader-link"]} to="/">
@@ -25,7 +25,6 @@ function NotEmptyCart(props) {
         </Link>
       </div>
       <div className={classes.listContainer}>
-        <table className={classes.listTable}>
           <div className={`${classes["listTable-header"]} row`}>
             <span className="col-8">Товар</span>
             <span className="col-4">Кількість</span>
@@ -45,11 +44,10 @@ function NotEmptyCart(props) {
               );
             })}
           </div>
-        </table>
       </div>
       <div className={classes.cartFooter}>
           <div className={classes["cartFooter-content"]}>
-              <p>Вартість: {cartSum}грн</p>
+              <p>Сумарна вартість: {cartSum}грн</p>
               <Button className={classes["cartFooter-content-button"]} color='dark' size="lg" onClick={onOrderHandler}>Замовити</Button>
           </div>
       </div>
