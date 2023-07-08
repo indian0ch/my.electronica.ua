@@ -8,3 +8,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.orderList-container{
+    /* border-left: 2px solid gray; */
+}
