@@ -10,6 +10,7 @@ import TermsService from "./components/Services/TermsService";
 import RefundInfo from "./components/Services/RefundInfo";
 import CartPage from "./components/Cart/CartPage";
 import Contact from "./components/Services/ContactUs";
+import OrderPage from "./components/OrderPage/OrderPage";
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,6 +34,7 @@ function App() {
         <Route path="/refund-policy" element={<RefundInfo />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cart/order" element={<OrderPage />} />
       </Routes>
       <Footer />
     </Router>

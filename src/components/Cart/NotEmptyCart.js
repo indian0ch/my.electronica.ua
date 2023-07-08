@@ -9,10 +9,6 @@ function NotEmptyCart(props) {
     cartItems: state.cartFunctional.items,
     cartSum: state.cartFunctional.totalSum,
   }));
-  
-  function onOrderHandler(event){
-    event.preventDefault();
-  }
 
   return (
     <div className="container-sm">
@@ -23,31 +19,39 @@ function NotEmptyCart(props) {
         </Link>
       </div>
       <div className={classes.listContainer}>
-          <div className={`${classes["listTable-header"]} row`}>
-            <span className="col-8">Товар</span>
-            <span className="col-4">Кількість</span>
-            <span className="col-2">Ціна</span>
-          </div>
-          <div className={`${classes["listTable-body"]}`}>
-            {cartItems.map((item) => {
-              return (
-                <ItemRow
-                  key={item.id}
-                  name={item.name}
-                  price={item.price}
-                  count={item.count}
-                  color={item.color}
-                  imageSrc={item.imageSrc}
-                />
-              );
-            })}
-          </div>
+        <div className={`${classes["listTable-header"]} row`}>
+          <span className="col-8">Товар</span>
+          <span className="col-4">Кількість</span>
+          <span className="col-2">Ціна</span>
+        </div>
+        <div className={`${classes["listTable-body"]}`}>
+          {cartItems.map((item) => {
+            return (
+              <ItemRow
+                key={item.id}
+                name={item.name}
+                price={item.price}
+                count={item.count}
+                color={item.color}
+                imageSrc={item.imageSrc}
+              />
+            );
+          })}
+        </div>
       </div>
       <div className={classes.cartFooter}>
-          <div className={classes["cartFooter-content"]}>
-              <p>Сумарна вартість: {cartSum}грн</p>
-              <Button className={classes["cartFooter-content-button"]} color='dark' size="lg" onClick={onOrderHandler}>Замовити</Button>
-          </div>
+        <div className={classes["cartFooter-content"]}>
+          <p>Сумарна вартість: {cartSum}грн</p>
+          <Link to="/cart/order">
+            <Button
+              className={classes["cartFooter-content-button"]}
+              color="primary"
+              size="lg"
+            >
+              Замовити
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+.orderPage{
+    /* display: flex;
+    justify-content: space-around; */
+    padding: 3rem 0rem 6rem;
+}
+
+.form-control{
+    display: flex;
+    justify-content: space-between;
+}
