@@ -8,9 +8,9 @@ function VideoReview(props) {
       <iframe
         src={props.link}
         title="Відео-Огляд"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
     </div>
   );

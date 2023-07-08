@@ -5,7 +5,7 @@ const TrashIcon = (props) => {
           width="16"
           height="16"
           fill="currentColor"
-          class="bi bi-trash"
+          className="bi bi-trash"
           viewBox="0 0 16 16"
           onClick={props.onDeleteHandler}
         >

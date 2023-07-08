@@ -8,14 +8,13 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
-const items = [];
-let key = 1;
-
 function ImageSlider(props) {
-  const item = props.itemArray.find((item) => item.id === props.id);
-  item.images.map((image) => {
-    items.push({ src: require(`../../asserts/${image}`), key: key });
-    key++;
+  let key = `${props.id}`;
+  const imagesSlider = [];
+  const itemImages = props.itemArray.find((item) => item.id === props.id);
+  itemImages.images.map((image) => {
+    imagesSlider.push({ src: require(`../../asserts/${image}`), key: key });
+    key += 1;
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,13 +22,15 @@ function ImageSlider(props) {
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex =
+      activeIndex === imagesSlider.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    const nextIndex =
+      activeIndex === 0 ? imagesSlider.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   };
 
@@ -38,12 +39,12 @@ function ImageSlider(props) {
     setActiveIndex(newIndex);
   };
 
-  const slides = items.map((item) => {
+  const slides = imagesSlider.map((item) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={item.key}
       >
         <img src={item.src} alt={item.altText} className="d-block w-100 " />
         <CarouselCaption

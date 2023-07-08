@@ -5,7 +5,7 @@ import ServiceItem from "./servicesItem";
 import ColorButton from "../UI/chooseColorButton";
 import VideoReview from "./VideoReview";
 import { cartActions } from "../storage/cart-slice";
-import { Accordion, Row, Col } from "reactstrap";
+import { Accordion, Row } from "reactstrap";
 import serviceItemsArr from "../Services/ServicesItemList";
 import ImageSlider from "./ImagesSlider";
 import itemsImages from "../../asserts/items-images.js";
@@ -39,7 +39,7 @@ function ItemPage(props) {
         return "Срібний";
       }
       case "3": {
-        return"Рожевий";
+        return "Рожевий";
       }
     }
   }
@@ -62,7 +62,7 @@ function ItemPage(props) {
       <div className={`${classes["itemPage"]} container-md`}>
         <Row>
           <div className="col-md">
-            <ImageSlider itemArray={itemsImages} id={props.id} />
+            <ImageSlider itemArray={itemsImages} id={props.id} key={props.id} />
           </div>
           <div className={`${classes["itemPage-description"]}  col-md`}>
             <div className={classes["itemPage-description-name"]}>
@@ -106,21 +106,21 @@ function ItemPage(props) {
                   accordionId="1"
                   iconsrc="https://img.icons8.com/ios/50/card-in-use.png"
                   name="Оплата"
-                  text={serviceItemsArr[0]}
+                  text={serviceItemsArr[0].text}
                 />
                 <ServiceItem
                   targetId="2"
                   accordionId="2"
                   iconsrc="https://img.icons8.com/ios/50/delivery--v1.png"
                   name="Доставка"
-                  text={serviceItemsArr[1]}
+                  text={serviceItemsArr[1].text}
                 />
                 <ServiceItem
                   targetId="3"
                   accordionId="3"
                   iconsrc="https://img.icons8.com/fluency-systems-filled/48/u-turn-to-left.png"
                   name="Обмін/повернення"
-                  text={serviceItemsArr[2]}
+                  text={serviceItemsArr[2].text}
                 />
               </Accordion>
             </div>

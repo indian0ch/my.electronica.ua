@@ -4,7 +4,7 @@ import ITEMS from "../../asserts/items";
 import CardItem from "../ItemPages/CardItem";
 import ItemPage from "../ItemPages/ItemPage";
 
-function BodyPage(props) {
+function BodyPage() {
   const [isItemOpen, setisItemOpen] = useState(false);
   const [displayItem, setDesplayItem] = useState();
 
@@ -14,7 +14,8 @@ function BodyPage(props) {
     const item = itemArr[0];
     setDesplayItem(
       <ItemPage
-      id={item.id}
+        key={item.id}
+        id={item.id}
         name={item.name}
         price={item.price}
         src={item.src}
