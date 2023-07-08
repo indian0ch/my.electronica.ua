@@ -1,8 +1,7 @@
-import { Fragment } from "react";
 import classes from "./ItemPage.module.css";
 
 function VideoReview(props) {
-  console.log(props.link);
+
   return (
     <div className={classes.videoReview}>
       <p>{props.children}</p>

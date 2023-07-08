@@ -12,35 +12,57 @@ const cartSlice = createSlice({
   reducers: {
     addNewItem: (state, action) => {
       const newItem = action.payload;
-      state.items.push(newItem);
+      const isItemAlreadyExist = state.items.some(
+        (element) =>
+          element.name === newItem.name && element.color === newItem.color
+      );
+      console.log(isItemAlreadyExist);
+      if (isItemAlreadyExist) {
+        const item = state.items.find(
+          (item) => item.name === newItem.name && item.color === newItem.color
+        );
+        item.count++;
+      } else {
+        state.items.push(newItem);
+      }
       state.totalSum += newItem.price;
       state.totalCount++;
     },
     removeItem: (state, action) => {
-      const nameItem = action.payload;
+      const itemProperty = action.payload;
       const deleteItem = state.items.find(
-        (element) => element.name === nameItem
+        (element) =>
+          element.name === itemProperty.name &&
+          element.color === itemProperty.color
       );
-      state.items = state.items.filter((element) => element.name !== nameItem);
+      state.items = state.items.filter(
+        (element) =>
+          element.name !== itemProperty.name &&
+          element.color !== itemProperty.color
+      );
       state.totalCount -= deleteItem.count;
       state.totalSum -= deleteItem.count * deleteItem.price;
     },
     decreaseItem: (state, action) => {
-      const nameItem = action.payload;
-      const item = state.items.find((item) => item.name === nameItem);
+      const itemProperty = action.payload;
+      const item = state.items.find(
+        (item) =>
+          item.name === itemProperty.name && item.color === itemProperty.color
+      );
       if (item.count > 1) {
         item.count--;
         state.totalSum -= item.price;
         state.totalCount--;
-      } else{
-        state.items = state.items.filter((element) => element.name !== nameItem);
+      } else {
+        const itemIndex=state.items.indexOf(item);
+        state.items.splice(itemIndex,1);
         state.totalCount -= item.count;
         state.totalSum -= item.count * item.price;
       }
     },
     increaseItem: (state, action) => {
-      const nameItem = action.payload;
-      const item = state.items.find((item) => item.name === nameItem);
+      const itemProperty = action.payload;
+      const item = state.items.find((item) => item.name === itemProperty.name && item.color === itemProperty.color);
       item.count++;
       state.totalSum += item.price;
       state.totalCount++;

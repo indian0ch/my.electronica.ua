@@ -11,16 +11,17 @@ function ItemRow(props) {
 
   function onDecreaseHandler(event) {
     event.preventDefault();
-    dispatch(cartActions.decreaseItem(props.name));
+    console.log(props.color);
+    dispatch(cartActions.decreaseItem({name:props.name, color:props.color}));
     setIsLoading(true);
   }
   function onIncreaseHandler(event) {
     event.preventDefault();
-    dispatch(cartActions.increaseItem(props.name));
+    dispatch(cartActions.increaseItem({name:props.name, color:props.color}));
     setIsLoading(true);
   }
   function onDeleteHandler() {
-    dispatch(cartActions.removeItem(props.name));
+    dispatch(cartActions.removeItem({name:props.name, color:props.color}));
     setIsLoading(true);
   }
 
@@ -39,7 +40,7 @@ function ItemRow(props) {
         <div className={`${classes["row-container"]} col-md-7 col-12`}>
           <div className={`${classes["row-name-container"]} col-md-3 col-sm-6 col-12`}>
             <p>{props.name}</p>
-            <span>{props.price} грн</span>
+            <span>{props.color}</span>
           </div>
           <div className={`${classes["row-count-container"]} col-md-4 col-sm-6 col-12`}>
             <ButtonGroup className={classes["row-count-container-group"]}>

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import classes from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -13,7 +12,6 @@ function NotEmptyCart(props) {
   
   function onOrderHandler(event){
     event.preventDefault();
-    
   }
 
   return (
