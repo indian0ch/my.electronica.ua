@@ -12,3 +12,14 @@
 .orderList-container{
     /* border-left: 2px solid gray; */
 }
+
+.orderService{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.orderService span{
+    font-weight: 500;
+    color: #000;
+}

@@ -3,22 +3,21 @@ import classes from "./Order.module.css";
 import OrderItemRow from "./OrderItemRow";
 
 function OrderList(props) {
-    
   return (
-    <div className=''>
+    <div className="">
       <h1>My electronica ua</h1>
-
-      <div className={classes.orderCost}>
-          <p>Вартість</p>
-          <p>1727 грн</p>
+      <OrderItemRow />
+      <div className={classes.orderService}>
+        <p>Вартість</p>
+        <span>1727 грн</span>
       </div>
-      <div className={classes.delivery}>
-          <p>Доставка</p>
-          <p>Розрахунок у відділенні служби доставки</p>
+      <div className={classes.orderService}>
+        <p>Доставка</p>
+        <span>Розрахунок у відділенні служби доставки</span>
       </div>
-      <div className={classes['orderCost-general']}>
-          <p>Загальна вартість</p>
-          <p>1727 грн</p>
+      <div className={classes["orderCost-general"]}>
+        <p>Загальна вартість</p>
+        <span>1727 грн</span>
       </div>
     </div>
   );

@@ -55,6 +55,8 @@ function OrderForm(props) {
   const postNumberRef = useRef();
   const cityRef = useRef();
   const phoneRef = useRef();
+  const paymentWayRef = useRef();
+  const deliveryWayRef = useRef();
   const [contactState, dispatchContact] = useReducer(contactReducer, {
     isNameValid: false,
     isSurnameValid: false,
@@ -82,11 +84,12 @@ function OrderForm(props) {
   }
 
   function onEnterClick() {
-    setIsLoadingBtn(true);
-    setTimeout(() => {
-      setIsLoadingBtn(false);
-    }, 500);
-    const status = checkValidation();
+
+    // setIsLoadingBtn(true);
+    // setTimeout(() => {
+    //   setIsLoadingBtn(false);
+    // }, 500);
+    // const status = checkValidation();
   }
 
   return (
@@ -160,11 +163,12 @@ function OrderForm(props) {
           </FormGroup>
         </Col>
       </Row>
-      <FormGroup>
-        <Input id="exampleSelect" name="select" type="select">
-          <option>Укрпошта</option>
-          <option>Нова пошта</option>
+      <FormGroup floating>
+        <Input id="exampleSelect" name="select" type="select" innerRef={deliveryWayRef}>
+          <option value='Укрпошта'>Укрпошта</option>
+          <option value='Нова пошта'>Нова пошта</option>
         </Input>
+        <Label for="contactPhone">Служба доставки</Label>
       </FormGroup>
       <FormGroup floating>
         <Input
@@ -179,6 +183,14 @@ function OrderForm(props) {
         />
         <Label for="contactPhone">Номер відділення</Label>
         <FormFeedback>Це поле є обовʼязковим для заповнення</FormFeedback>
+      </FormGroup>
+      <FormGroup floating>
+        <Input id="exampleSelect" name="select" type="select" innerRef={paymentWayRef}>
+          <option value='Накладний платіж'>Накладний платіж (2% комісії на пошті)</option>
+          <option value='Мінімальна предоплата'>Мінімальна предоплата (100 грн)</option>
+          <option value='Повна предоплата'>Повна предоплата</option>
+        </Input>
+        <Label for="contactPhone">Спосіб оплати</Label>
       </FormGroup>
       <div className={classes["form-control"]}>
         <Link to="/cart">Повернутись в кошик</Link>
