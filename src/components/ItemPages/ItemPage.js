@@ -9,8 +9,12 @@ import { Accordion, Row } from "reactstrap";
 import serviceItemsArr from "../Services/ServicesItemList";
 import ImageSlider from "./ImagesSlider";
 import itemsImages from "../../asserts/items-images.js";
+import { useParams } from "react-router-dom";
+import ITEMS from "../../asserts/items";
 
 function ItemPage(props) {
+  const { itemName } = useParams();
+  const requestItem = ITEMS.find((item) => item.name === itemName);
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
 
@@ -26,7 +30,7 @@ function ItemPage(props) {
     }
   };
 
-  const paragraphs = props.description
+  const paragraphs = requestItem.description
     .split("\n")
     .map((paragraph, index) => <p key={index}>{paragraph}</p>);
 
@@ -48,11 +52,11 @@ function ItemPage(props) {
     let colorItem = checkColorName();
     dispatch(
       cartActions.addNewItem({
-        name: props.name,
-        price: props.price,
+        name: requestItem.name,
+        price: requestItem.price,
         count: 1,
         color: colorItem,
-        imageSrc: props.src,
+        imageSrc: requestItem.src,
       })
     );
   }
@@ -62,14 +66,18 @@ function ItemPage(props) {
       <div className={`${classes["itemPage"]} container-md`}>
         <Row>
           <div className="col-md">
-            <ImageSlider itemArray={itemsImages} id={props.id} key={props.id} />
+            <ImageSlider
+              itemArray={itemsImages}
+              id={requestItem.id}
+              key={requestItem.id}
+            />
           </div>
           <div className={`${classes["itemPage-description"]}  col-md`}>
             <div className={classes["itemPage-description-name"]}>
-              <p>{props.name}</p>
+              <p>{requestItem.name}</p>
             </div>
             <div className={classes["itemPage-description-price"]}>
-              <p>{props.price} грн</p>
+              <p>{requestItem.price} грн</p>
             </div>
             <div className={classes["itemPage-description-color"]}>
               <p>Оберіть колір:</p>
@@ -132,7 +140,9 @@ function ItemPage(props) {
         {paragraphs}
       </div>
       <div className="container-lg">
-        <VideoReview link={props.link}>Відео-огляд на {props.name}</VideoReview>
+        <VideoReview link={requestItem.videolink}>
+          Відео-огляд на {requestItem.name}
+        </VideoReview>
       </div>
     </Fragment>
   );

@@ -1,5 +1,6 @@
 import classes from "./CardItem.module.css";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
 function CardItem(props) {
   return (
@@ -15,16 +16,17 @@ function CardItem(props) {
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           {props.price} грн.
         </CardSubtitle>
-        <Button
-          className={classes["cardItem-footer"]}
-          onClick={props.onClick}
-          block
-          color="dark"
-          outline
-          size="lg"
-        >
-          Детальніше
-        </Button>
+        <NavLink to={`/${props.name}`}>
+          <Button
+            className={classes["cardItem-footer"]}
+            block
+            color="dark"
+            outline
+            size="lg"
+          >
+            Детальніше
+          </Button>
+        </NavLink>
       </CardBody>
     </Card>
   );

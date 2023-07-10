@@ -18,6 +18,7 @@ import {
   NavbarText,
 } from "reactstrap";
 
+
 function HeaderMenu(props) {
   const { itemCount } = useSelector((state) => ({
     itemCount: state.cartFunctional.totalCount,
