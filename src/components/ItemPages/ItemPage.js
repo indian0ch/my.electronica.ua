@@ -17,6 +17,7 @@ function ItemPage(props) {
   const requestItem = ITEMS.find((item) => item.name === itemName);
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
+  const [colorAttention, setColorAttention] = useState(false);
 
   const whichClrBtnActv = useSelector(
     (state) => state.colorChoosen.isColorActive
@@ -49,16 +50,23 @@ function ItemPage(props) {
   }
   function onAddToCartHandler(event) {
     event.preventDefault();
-    let colorItem = checkColorName();
-    dispatch(
-      cartActions.addNewItem({
-        name: requestItem.name,
-        price: requestItem.price,
-        count: 1,
-        color: colorItem,
-        imageSrc: requestItem.src,
-      })
-    );
+    if (whichClrBtnActv !== 0) {
+      let colorItem = checkColorName();
+      dispatch(
+        cartActions.addNewItem({
+          name: requestItem.name,
+          price: requestItem.price,
+          count: 1,
+          color: colorItem,
+          imageSrc: requestItem.src,
+        })
+      );
+    } else {
+      setColorAttention(true);
+      setTimeout(() => {
+        setColorAttention(false);
+      }, 3000);
+    }
   }
 
   return (
@@ -101,6 +109,9 @@ function ItemPage(props) {
                   Рожевий
                 </ColorButton>
               </div>
+              {colorAttention && (
+                <p className="my-4 fw-bold">Вибір кольору обовʼязковий</p>
+              )}
             </div>
             <div className={classes["itemPage-description-button"]}>
               <button className="btn btn-dark" onClick={onAddToCartHandler}>
