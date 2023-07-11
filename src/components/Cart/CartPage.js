@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import classes from "./Cart.module.css";
 import { useSelector } from "react-redux";
 import EmptyCart from "./EmptyCart";
 import NotEmptyCart from "./NotEmptyCart";
 
 function CartPage(props) {
+  useEffect(() => {
+    document.title = "Кошик";
+  }, []);
   const { cartItems } = useSelector((state) => ({
     cartItems: state.cartFunctional.items,
   }));

@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import classes from "./services.module.css";
 
 function AboutUs(props) {
+  useEffect(() => {
+    document.title = 'Про нас';
+  }, []);
   return (
     <div className={`${classes.aboutUs} container-md my-5`}>
       <h1>Про нас</h1>

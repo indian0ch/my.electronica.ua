@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import ITEMS from "../../asserts/items";
 import classes from "./BodyPage.module.css";
 import CardItem from "../ItemPages/CardItem";
 
 function ItemsListPage(props) {
+  useEffect(() => {
+    document.title = 'Головна сторінка';
+  }, []);
   const displayItems = ITEMS.map((item) => (
     <CardItem
       key={item.id}

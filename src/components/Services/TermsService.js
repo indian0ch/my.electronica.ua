@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import classes from "./services.module.css";
 
 function TermsService(props) {
+  useEffect(() => {
+    document.title = 'Умови обслуговування';
+  }, []);
   return (
     <div className={`${classes.aboutUs} container-md my-5`}>
       <h1>Умови обслуговування</h1>

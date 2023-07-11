@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./ItemPage.module.css";
 import ServiceItem from "./servicesItem";
@@ -18,6 +18,9 @@ function ItemPage(props) {
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
   const [colorAttention, setColorAttention] = useState(false);
+  useEffect(() => {
+    document.title = itemName;
+  }, []);
 
   const whichClrBtnActv = useSelector(
     (state) => state.colorChoosen.isColorActive

@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import classes from "./services.module.css";
 import ContactForm from "./ContactForm";
 
 function Contact(props) {
+  useEffect(() => {
+    document.title = 'Контакти';
+  }, []);
   function sendMessage(message) {
     console.log(message);
     let tg = {

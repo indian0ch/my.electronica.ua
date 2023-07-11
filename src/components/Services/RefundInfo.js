@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import classes from "./services.module.css";
 
 function RefundInfo(props) {
+  useEffect(() => {
+    document.title = 'Відшкодування';
+  }, []);
   return (
     <div className={`${classes.aboutUs} container-md my-5`}>
       <h2>ДОСТАВКА ТА ПОВЕРНЕННЯ ПО УКРАЇНІ</h2>

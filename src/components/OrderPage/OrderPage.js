@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import classes from "./Order.module.css";
 import OrderForm from "./OrderForm";
 import OrderList from "./OrderList";
@@ -6,6 +7,9 @@ import { useSelector } from "react-redux";
 import sendOrder from "./sendOrder";
 
 function OrderPage(props) {
+  useEffect(() => {
+    document.title = 'Замовлення';
+  }, []);
   const { cartItems, cartSum } = useSelector((state) => ({
     cartItems: state.cartFunctional.items,
     cartSum: state.cartFunctional.totalSum,
