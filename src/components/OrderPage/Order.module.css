@@ -1,25 +1,24 @@
-.orderPage{
-    /* display: flex;
-    justify-content: space-around; */
+.orderPage {
     padding: 3rem 0rem 6rem;
 }
 
-.form-control{
+.form-control {
     display: flex;
     justify-content: space-between;
 }
 
-.orderList-container{
-    /* border-left: 2px solid gray; */
-}
-
-.orderService{
+.orderService {
     display: flex;
     justify-content: space-between;
     font-size: 15px;
 }
 
-.orderService span{
+.orderService span {
     font-weight: 500;
     color: #000;
+}
+
+.itemRow-imagediv img {
+    height: 90%;
+    border-radius: 10px;
 }

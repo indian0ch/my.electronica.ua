@@ -83,13 +83,24 @@ function OrderForm(props) {
     return status;
   }
 
-  function onEnterClick() {
-
-    // setIsLoadingBtn(true);
-    // setTimeout(() => {
-    //   setIsLoadingBtn(false);
-    // }, 500);
-    // const status = checkValidation();
+  function onConfirmClick(event) {
+    event.preventDefault();
+    setIsLoadingBtn(true);
+    setTimeout(() => {
+      setIsLoadingBtn(false);
+    }, 1000);
+    const status = checkValidation();
+    if (status) {
+      props.onConfirmClick({
+        name: nameRef.current.value,
+        surname: surnameRef.current.value,
+        city: cityRef.current.value,
+        phoneNumber: phoneRef.current.value,
+        postWay: deliveryWayRef.current.value,
+        postNumber: postNumberRef.current.value,
+        paymentWay: paymentWayRef.current.value,
+      });
+    }
   }
 
   return (
@@ -164,9 +175,14 @@ function OrderForm(props) {
         </Col>
       </Row>
       <FormGroup floating>
-        <Input id="exampleSelect" name="select" type="select" innerRef={deliveryWayRef}>
-          <option value='Укрпошта'>Укрпошта</option>
-          <option value='Нова пошта'>Нова пошта</option>
+        <Input
+          id="exampleSelect"
+          name="select"
+          type="select"
+          innerRef={deliveryWayRef}
+        >
+          <option value="Укрпошта">Укрпошта</option>
+          <option value="Нова пошта">Нова пошта</option>
         </Input>
         <Label for="contactPhone">Служба доставки</Label>
       </FormGroup>
@@ -185,17 +201,30 @@ function OrderForm(props) {
         <FormFeedback>Це поле є обовʼязковим для заповнення</FormFeedback>
       </FormGroup>
       <FormGroup floating>
-        <Input id="exampleSelect" name="select" type="select" innerRef={paymentWayRef}>
-          <option value='Накладний платіж'>Накладний платіж (2% комісії на пошті)</option>
-          <option value='Мінімальна предоплата'>Мінімальна предоплата (100 грн)</option>
-          <option value='Повна предоплата'>Повна предоплата</option>
+        <Input
+          id="exampleSelect"
+          name="select"
+          type="select"
+          innerRef={paymentWayRef}
+        >
+          <option value="Накладний платіж">
+            Накладний платіж (2% комісії на пошті)
+          </option>
+          <option value="Мінімальна предоплата">
+            Мінімальна предоплата (100 грн)
+          </option>
+          <option value="Повна предоплата">Повна предоплата</option>
         </Input>
         <Label for="contactPhone">Спосіб оплати</Label>
       </FormGroup>
       <div className={classes["form-control"]}>
         <Link to="/cart">Повернутись в кошик</Link>
-        <Button onClick={onEnterClick} color="primary" size="lg">
-          {isLoadingBtn === true ? <Spinner size="sm" color="light" /> : "Далі"}
+        <Button onClick={onConfirmClick} color="primary" size="lg">
+          {isLoadingBtn === true ? (
+            <Spinner size="sm" color="light" />
+          ) : (
+            "Підтвердити замовлення"
+          )}
         </Button>
       </div>
     </Form>
