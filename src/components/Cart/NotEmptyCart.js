@@ -2,7 +2,7 @@ import classes from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ItemRow from "./ItemRow";
-import { Button, Row } from "reactstrap";
+import { Button, NavLink } from "reactstrap";
 
 function NotEmptyCart(props) {
   const { cartItems, cartSum } = useSelector((state) => ({
@@ -42,15 +42,13 @@ function NotEmptyCart(props) {
       <div className={classes.cartFooter}>
         <div className={classes["cartFooter-content"]}>
           <p>Сумарна вартість: {cartSum}грн</p>
-          <Link to="/cart/order">
-            <Button
+          <NavLink href="/cart/order">            <Button
               className={classes["cartFooter-content-button"]}
               color="primary"
               size="lg"
             >
               Замовити
-            </Button>
-          </Link>
+            </Button></NavLink>
         </div>
       </div>
     </div>

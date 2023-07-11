@@ -39,8 +39,8 @@ function ItemRow(props) {
         </div>
         <div className={`${classes["row-container"]} col-md-7 col-12`}>
           <div className={`${classes["row-name-container"]} col-md-3 col-sm-6 col-12`}>
-            <p>{props.name}</p>
-            <span>{props.color}</span>
+            <p>{props.name} <span>{props.color}</span></p>
+            
           </div>
           <div className={`${classes["row-count-container"]} col-md-4 col-sm-6 col-12`}>
             <ButtonGroup className={classes["row-count-container-group"]}>

@@ -1,6 +1,6 @@
 import classes from "./CardItem.module.css";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "reactstrap";
 
 function CardItem(props) {
   return (
@@ -16,7 +16,7 @@ function CardItem(props) {
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           {props.price} грн.
         </CardSubtitle>
-        <NavLink to={`/${props.name}`}>
+        <NavLink href={`/${props.name}`}>
           <Button
             className={classes["cardItem-footer"]}
             block
@@ -27,6 +27,7 @@ function CardItem(props) {
             Детальніше
           </Button>
         </NavLink>
+        
       </CardBody>
     </Card>
   );
