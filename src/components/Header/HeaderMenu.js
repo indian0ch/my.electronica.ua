@@ -27,6 +27,10 @@ function HeaderMenu(props) {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  function onCartClickHandler(){
+    setIsOpen(false);
+  }
+
   return (
     <Navbar {...props}>
       <NavbarBrand href="/">My electronica</NavbarBrand>
@@ -55,7 +59,7 @@ function HeaderMenu(props) {
             </DropdownMenu>
           </UncontrolledDropdown> */}
         </Nav>
-        <Link className={classes["cart-button"]} to="/cart">
+        <Link className={classes["cart-button"]} to="/cart" onClick={onCartClickHandler}>
           <span className={classes["cart-icon"]}>
             <CartIcon />
           </span>
