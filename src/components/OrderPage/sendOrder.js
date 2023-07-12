@@ -27,7 +27,7 @@ function sendOrder(informObject, cartItems, cartSum) {
     body: JSON.stringify(obj),
   })
     .then(function (res) {
-      alert("Form data was send");
+ 
     })
     .catch(function (res) {
       alert(res.error);

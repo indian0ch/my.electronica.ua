@@ -12,6 +12,7 @@ import {
   Spinner,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import ModalSuccess from "./ModalSuccess";
 
 function contactReducer(state, action) {
   switch (action.type) {
@@ -64,6 +65,11 @@ function OrderForm(props) {
     isPostNumberValid: false,
     isCityValid: false,
   });
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+
+  const displayModal = <ModalSuccess modal={modal} toggle={toggle} />;
 
   function checkValidation() {
     let status = true;
@@ -82,7 +88,6 @@ function OrderForm(props) {
     });
     return status;
   }
-
   function onConfirmClick(event) {
     event.preventDefault();
     setIsLoadingBtn(true);
@@ -100,12 +105,14 @@ function OrderForm(props) {
         postNumber: postNumberRef.current.value,
         paymentWay: paymentWayRef.current.value,
       });
+      toggle(true);
     }
   }
 
   return (
     <Form>
       <h4>Контактна інформація</h4>
+      {modal && displayModal}
       <Row>
         <Col>
           <FormGroup floating>
