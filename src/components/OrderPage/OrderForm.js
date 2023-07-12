@@ -12,7 +12,7 @@ import {
   Spinner,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import ModalSuccess from "./ModalSuccess";
+import ModalSuccessOrder from "./ModalSuccess";
 
 function contactReducer(state, action) {
   switch (action.type) {
@@ -69,7 +69,7 @@ function OrderForm(props) {
 
   const toggle = () => setModal(!modal);
 
-  const displayModal = <ModalSuccess modal={modal} toggle={toggle} />;
+  const displayModal = <ModalSuccessOrder modal={modal} toggle={toggle} />;
 
   function checkValidation() {
     let status = true;

@@ -11,6 +11,7 @@ import ImageSlider from "./ImagesSlider";
 import itemsImages from "../../asserts/items-images.js";
 import { useParams } from "react-router-dom";
 import ITEMS from "../../asserts/items";
+import ModalAddItem from "./ModalAddItem";
 
 function ItemPage(props) {
   const { itemName } = useParams();
@@ -34,6 +35,9 @@ function ItemPage(props) {
       setOpenService(id);
     }
   };
+  const [modalAdd, setModalAdd] = useState(false);
+
+  const toggleModalAdd = () => setModalAdd(!modalAdd);
 
   const paragraphs = requestItem.description
     .split("\n")
@@ -65,16 +69,18 @@ function ItemPage(props) {
           imageSrc: requestItem.src,
         })
       );
+      setModalAdd(true);
     } else if (whichClrBtnActv === 0 && requestItem.section !== "Watches") {
       dispatch(
         cartActions.addNewItem({
           name: requestItem.name,
           price: requestItem.price,
           count: 1,
-          color: 'Стандартний колір',
+          color: "Стандартний колір",
           imageSrc: requestItem.src,
         })
       );
+      setModalAdd(true);
     } else {
       setColorAttention(true);
       setTimeout(() => {
@@ -85,6 +91,15 @@ function ItemPage(props) {
 
   return (
     <Fragment>
+      {modalAdd && (
+        <ModalAddItem
+          toggle={toggleModalAdd}
+          modal={modalAdd}
+          src={requestItem.src}
+          name={requestItem.name}
+          price={requestItem.price}
+        />
+      )}
       <div className={`${classes["itemPage"]} container-md`}>
         <Row>
           <div className="col-md">

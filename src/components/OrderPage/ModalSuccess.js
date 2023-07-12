@@ -1,6 +1,6 @@
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-function ModalSuccess(props) {
+function ModalSuccessOrder(props) {
   return (
     <Modal isOpen={props.modal} toggle={props.toggle} centered={true}>
       <ModalHeader toggle={props.toggle}>
@@ -24,4 +24,4 @@ function ModalSuccess(props) {
     </Modal>
   );
 }
-export default ModalSuccess;
+export default ModalSuccessOrder;
