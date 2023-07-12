@@ -71,7 +71,7 @@ function ItemPage(props) {
           name: requestItem.name,
           price: requestItem.price,
           count: 1,
-          color: '',
+          color: 'Стандартний колір',
           imageSrc: requestItem.src,
         })
       );
