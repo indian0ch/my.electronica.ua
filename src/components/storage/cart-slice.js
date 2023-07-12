@@ -35,11 +35,7 @@ const cartSlice = createSlice({
           element.name === itemProperty.name &&
           element.color === itemProperty.color
       );
-      state.items = state.items.filter(
-        (element) =>
-          element.name !== itemProperty.name &&
-          element.color !== itemProperty.color
-      );
+      state.items = state.items.filter((element) => element !== deleteItem);
       state.totalCount -= deleteItem.count;
       state.totalSum -= deleteItem.count * deleteItem.price;
     },
@@ -54,15 +50,18 @@ const cartSlice = createSlice({
         state.totalSum -= item.price;
         state.totalCount--;
       } else {
-        const itemIndex=state.items.indexOf(item);
-        state.items.splice(itemIndex,1);
+        const itemIndex = state.items.indexOf(item);
+        state.items.splice(itemIndex, 1);
         state.totalCount -= item.count;
         state.totalSum -= item.count * item.price;
       }
     },
     increaseItem: (state, action) => {
       const itemProperty = action.payload;
-      const item = state.items.find((item) => item.name === itemProperty.name && item.color === itemProperty.color);
+      const item = state.items.find(
+        (item) =>
+          item.name === itemProperty.name && item.color === itemProperty.color
+      );
       item.count++;
       state.totalSum += item.price;
       state.totalCount++;
