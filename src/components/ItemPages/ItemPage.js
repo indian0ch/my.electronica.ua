@@ -15,6 +15,7 @@ import ITEMS from "../../asserts/items";
 function ItemPage(props) {
   const { itemName } = useParams();
   const requestItem = ITEMS.find((item) => item.name === itemName);
+  console.log(requestItem.section);
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
   const [colorAttention, setColorAttention] = useState(false);
@@ -53,7 +54,7 @@ function ItemPage(props) {
   }
   function onAddToCartHandler(event) {
     event.preventDefault();
-    if (whichClrBtnActv !== 0) {
+    if (whichClrBtnActv !== 0 && requestItem.section === "Watches") {
       let colorItem = checkColorName();
       dispatch(
         cartActions.addNewItem({
@@ -61,6 +62,16 @@ function ItemPage(props) {
           price: requestItem.price,
           count: 1,
           color: colorItem,
+          imageSrc: requestItem.src,
+        })
+      );
+    } else if (whichClrBtnActv === 0 && requestItem.section !== "Watches") {
+      dispatch(
+        cartActions.addNewItem({
+          name: requestItem.name,
+          price: requestItem.price,
+          count: 1,
+          color: '',
           imageSrc: requestItem.src,
         })
       );
@@ -90,32 +101,34 @@ function ItemPage(props) {
             <div className={classes["itemPage-description-price"]}>
               <p>{requestItem.price} грн</p>
             </div>
-            <div className={classes["itemPage-description-color"]}>
-              <p>Оберіть колір:</p>
-              <div>
-                <ColorButton
-                  id="1"
-                  status={whichClrBtnActv === "1" ? true : false}
-                >
-                  Чорний
-                </ColorButton>
-                <ColorButton
-                  id="2"
-                  status={whichClrBtnActv === "2" ? true : false}
-                >
-                  Срібний
-                </ColorButton>
-                <ColorButton
-                  id="3"
-                  status={whichClrBtnActv === "3" ? true : false}
-                >
-                  Рожевий
-                </ColorButton>
+            {requestItem.section === "Watches" && (
+              <div className={classes["itemPage-description-color"]}>
+                <p>Оберіть колір:</p>
+                <div>
+                  <ColorButton
+                    id="1"
+                    status={whichClrBtnActv === "1" ? true : false}
+                  >
+                    Чорний
+                  </ColorButton>
+                  <ColorButton
+                    id="2"
+                    status={whichClrBtnActv === "2" ? true : false}
+                  >
+                    Срібний
+                  </ColorButton>
+                  <ColorButton
+                    id="3"
+                    status={whichClrBtnActv === "3" ? true : false}
+                  >
+                    Рожевий
+                  </ColorButton>
+                </div>
+                {colorAttention && (
+                  <p className="my-4 fw-bold">Вибір кольору обовʼязковий</p>
+                )}
               </div>
-              {colorAttention && (
-                <p className="my-4 fw-bold">Вибір кольору обовʼязковий</p>
-              )}
-            </div>
+            )}
             <div className={classes["itemPage-description-button"]}>
               <button className="btn btn-dark" onClick={onAddToCartHandler}>
                 Додати в кошик
