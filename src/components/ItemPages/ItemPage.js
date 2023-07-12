@@ -16,7 +16,6 @@ import ModalAddItem from "./ModalAddItem";
 function ItemPage(props) {
   const { itemName } = useParams();
   const requestItem = ITEMS.find((item) => item.name === itemName);
-  console.log(requestItem.section);
   const dispatch = useDispatch();
   const [openService, setOpenService] = useState("0");
   const [colorAttention, setColorAttention] = useState(false);
@@ -58,6 +57,7 @@ function ItemPage(props) {
   }
   function onAddToCartHandler(event) {
     event.preventDefault();
+
     if (whichClrBtnActv !== 0 && requestItem.section === "Watches") {
       let colorItem = checkColorName();
       dispatch(
@@ -70,7 +70,7 @@ function ItemPage(props) {
         })
       );
       setModalAdd(true);
-    } else if (whichClrBtnActv === 0 && requestItem.section !== "Watches") {
+    } else if (requestItem.section !== "Watches") {
       dispatch(
         cartActions.addNewItem({
           name: requestItem.name,

@@ -54,15 +54,15 @@ const ITEMS = [
     videolink: "https://www.youtube.com/embed/U1XvY8KZnmQ",
     price: 1240,
   },
-  // {
-  //   id: "w3",
-  //   name: "Смарт годинник 8 Ultra",
-  //   section: "Watches",
-  //   src: "testImage.jpeg",
-  //   description: "American, raw, meaty",
-  //   videolink: "https://youtu.be/DrhF4NT59k4",
-  //   price: 888,
-  // },
+  {
+    id: "w3",
+    name: "Смарт годинник 8 Ultra",
+    section: "Watches",
+    src: "testImage.jpeg",
+    description: "American, raw, meaty",
+    videolink: "https://youtu.be/DrhF4NT59k4",
+    price: 888,
+  },
   {
     id: "w4",
     name: "Смарт годинник 8s",
@@ -95,6 +95,25 @@ const ITEMS = [
     Ремішок Nike у подарунок!🙌🏽`,
     videolink: "https://www.youtube.com/embed/yMamuXfEMb4",
     price: 1399,
+  },
+  {
+    id: "h1",
+    name: "Навушники Airpods 2",
+    section: "Headphones",
+    src: "Airpods2-main.jpeg",
+    description: `AIRPODS 2 - ВЖЕ У НАЯВНОСТІ🔥
+    Ці навушники точно забезпечать Вам приємне прослуховування💯
+    
+    - Оригінальна упаковка
+    - Cумісні з iOS та Android
+    - Підключаються до IOS 16
+    - Оригінальна анімація
+    - Ванночка-картон
+    - Якісний звук
+    - Плівка товста с Logo Apple
+    - 3 різних серійних номери, пробиваються на офіційному сайті Apple.`,
+    videolink: "https://www.youtube.com/embed/zHxzQSL_TMc",
+    price: 1249,
   },
 ];
 export default ITEMS;

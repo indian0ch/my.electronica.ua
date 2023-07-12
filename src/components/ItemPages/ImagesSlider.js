@@ -12,6 +12,7 @@ function ImageSlider(props) {
   let key = `${props.id}`;
   const imagesSlider = [];
   const itemImages = props.itemArray.find((item) => item.id === props.id);
+
   itemImages.images.map((image) => {
     imagesSlider.push({ src: require(`../../asserts/${image}`), key: key });
     key += 1;
